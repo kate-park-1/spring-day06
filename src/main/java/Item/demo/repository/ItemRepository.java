@@ -17,5 +17,5 @@ public interface ItemRepository {
   public List<Item> findAll();
   public Item save(Item item);
   public Item findById(Long id);
-  public void update(Long id, Item item);
+  public void update(Long id, ItemDto item);
 }

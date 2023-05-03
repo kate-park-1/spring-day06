@@ -7,31 +7,36 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
-@PersistenceContext
+
 @RequiredArgsConstructor
 public class JPAItemRepository implements ItemRepository{
+
+  @PersistenceContext
   private final EntityManager em;
   @Override
   public List<Item> findAll() {
-    return null;
+    List itemList = em.createQuery("select i from Item i",
+                    Item.class).getResultList();
+    System.out.println(itemList);
+    return itemList;
   }
 
   @Override
   public Item save(Item item) {
-
-    em.persist();
-    return null;
+    em.persist(item);
+    return item;
   }
 
   @Override
   public Item findById(Long id) {
-    return null;
+    return em.find(Item.class,id);
   }
 
   @Override
-  public void update(Long id, ItemDto itemDto) {
+  public void update(Long id, ItemDto itemUpdate) {
 
   }
 }

@@ -35,11 +35,11 @@ public class MemoryItemRepository implements ItemRepository {
   }
 
   @Override
-  public void update(Long id, ItemDto itemDto) {
+  public void update(Long id, ItemDto itemUpdate) {
     Item item = findById(id);
-    item.setItemName(itemDto.getItemName());
-    item.setQuantity(itemDto.getQuantity());
-    item.setPrice(itemDto.getPrice());
+    item.setItemName(itemUpdate.getItemName());
+    item.setQuantity(itemUpdate.getQuantity());
+    item.setPrice(itemUpdate.getPrice());
     //store.put(item.getId(),item); //==> 결과 확인 필요
   }
 

@@ -50,8 +50,10 @@ class MemoryItemRepositoryTest {
     // given
     Item item = new Item("itemA", 1000, 10);
     Item item1 = repository.save(item);
+
     item = new Item("itemB", 1000, 10);
     Item item2 = repository.save(item);
+
     // when
     List<Item> itemList = repository.findAll();
     // then
